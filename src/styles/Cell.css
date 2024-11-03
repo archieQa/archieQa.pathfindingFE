@@ -1,0 +1,13 @@
+/* Cell.css */
+.cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .cell-start { background-color: green; }
+  .cell-end { background-color: red; }
+  .cell-obstacle { background-color: black; }
+  .cell-path { background-color: yellow; }
+  .cell-visited { background-color: lightblue; }
+  
