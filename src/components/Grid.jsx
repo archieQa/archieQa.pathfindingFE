@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import Cell from "../components/Cell";
+import React, { useEffect, useState } from "react";
+import Cell from "./Cell";
 import "../styles/Grid.css";
 
-const Grid = ({ gridSize, start, end, obstacles, path }) => {
+const Grid = ({ gridSize, start, end, obstacles, path, onCellClick }) => {
   const [grid, setGrid] = useState([]);
 
   // Initialize grid with start, end, and obstacles
@@ -22,7 +22,7 @@ const Grid = ({ gridSize, start, end, obstacles, path }) => {
     setGrid(initializeGrid());
   }, [gridSize, start, end, obstacles]);
 
-  // Animate path traversal like a "snake" effect
+  // Animate path traversal
   useEffect(() => {
     if (path.length) {
       path.forEach((cell, index) => {
@@ -40,14 +40,20 @@ const Grid = ({ gridSize, start, end, obstacles, path }) => {
     }
   }, [path]);
 
+  // Flatten grid array for rendering all cells in one container
+  const flatGrid = grid.flat();
+
   return (
-    <div className="grid">
-      {grid.map((row, rowIndex) => (
-        <div key={rowIndex} className="grid-row">
-          {row.map((cell) => (
-            <Cell key={`${cell.row}-${cell.col}`} cell={cell} />
-          ))}
-        </div>
+    <div
+      className="grid"
+      style={{ gridTemplateColumns: `repeat(${gridSize.cols}, 20px)` }}
+    >
+      {flatGrid.map((cell) => (
+        <Cell
+          key={`${cell.row}-${cell.col}`}
+          cell={cell}
+          onClick={() => onCellClick(cell.row, cell.col)}
+        />
       ))}
     </div>
   );

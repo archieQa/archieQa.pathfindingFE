@@ -1,8 +1,32 @@
-/* Grid.css */
 .grid {
-  display: inline-block;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+  gap: 2px; /* Optional: Add spacing between cells */
+  width: fit-content; /* Adjust to fit content */
 }
 
 .grid-row {
   display: flex;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+}
+
+.cell-start {
+  background-color: green;
+}
+
+.cell-end {
+  background-color: red;
+}
+
+.cell-obstacle {
+  background-color: black;
+}
+
+.cell-path {
+  background-color: yellow;
 }
