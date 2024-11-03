@@ -31,6 +31,7 @@ function App() {
     }
   };
 
+  // Fetch the path from the API
   const fetchPath = async () => {
     try {
       const response = await fetch(`${url}/find-path`, {
