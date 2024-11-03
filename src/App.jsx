@@ -12,7 +12,7 @@ function App() {
   const [algorithm, setAlgorithm] = useState("a_star");
   const [mode, setMode] = useState("start");
 
-  const url = "http://localhost:5000";
+  const url = import.meta.env.VITE_API_URL;
 
   const gridSize = { rows, cols };
 
