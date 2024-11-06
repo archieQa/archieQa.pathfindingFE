@@ -12,8 +12,8 @@ function App() {
   const [algorithm, setAlgorithm] = useState("a_star");
   const [mode, setMode] = useState("start");
 
-  const url = import.meta.env.VITE_API_URL || "http://localhost:5000";
-  console.log("API URL:", url);
+  const url = "https://archie-qa-pathfinding-be.vercel.app";
+
   const gridSize = { rows, cols };
 
   const handleCellClick = (row, col) => {
