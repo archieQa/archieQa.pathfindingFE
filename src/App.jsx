@@ -12,7 +12,7 @@ function App() {
   const [algorithm, setAlgorithm] = useState("a_star");
   const [mode, setMode] = useState("start");
 
-  const url = import.meta.env.VITE_API_URL || "http://localhost:5000/";
+  const url = import.meta.env.VITE_API_URL || "http://localhost:5000";
   console.log("API URL:", url);
   const gridSize = { rows, cols };
 
@@ -34,7 +34,7 @@ function App() {
   // Fetch the path from the API
   const fetchPath = async () => {
     try {
-      const response = await fetch(`${url}find-path`, {
+      const response = await fetch(`${url}/find-path`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ algorithm, gridSize, start, end, obstacles }),
